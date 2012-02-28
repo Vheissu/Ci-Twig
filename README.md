@@ -8,7 +8,7 @@ Lets face it, the in-built parser and view system is crap. It doesn't offer anyt
 
 To use this library load it or better yet, autoload it. Then you can do stuff like this in your controllers.
 
-$data['title'] = "Page Title";
-$data['content'] = "<p>Welcome to my sexy page being displayed by Twig inside of Codeigniter</p>";
+    $data['title'] = "Page Title";
+    $data['content'] = "<p>Welcome to my sexy page being displayed by Twig inside of Codeigniter</p>";
 
-$this->twig->parse('yourtemplate.twig', $data);
+    $this->twig->parse('yourtemplate.twig', $data);
