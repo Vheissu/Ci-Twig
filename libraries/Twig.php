@@ -55,9 +55,10 @@ class Twig {
 	* @param mixed $data
 	* @returns string
 	*/
-	public function parse($template, $data = array(), $return = false)
+	public function parse($template, $data = array(), $return = FALSE)
 	{
-        if (stripos($template, '.') === false) {
+        if (stripos($template, '.') === FALSE) 
+        {
             $template . config_item('twig.extension');
         }
 	     
