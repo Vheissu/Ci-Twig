@@ -64,12 +64,7 @@ class Twig {
 	     
 	    $template = $this->_twig->loadTemplate($template);
 	    
-	    if ( is_array($data) )
-	    {
-	        $data = array_merge($data, $this->CI->load->get_vars());
-	    }
-	    
-	    if ( $return === true )
+	    if ($return === true)
 	    {
 	        return $template->render($data);
 	    }
@@ -91,11 +86,6 @@ class Twig {
     public function parse_string($string, $data = array(), $return = false)
     {
         $string = $this->_twig->loadTemplate($string);
-
-        if ( is_array($data) )
-        {
-            $data = array_merge($data, $this->CI->load->get_vars());
-        }
 
         if ( $return === true )
         {
