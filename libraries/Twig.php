@@ -172,6 +172,9 @@ class Twig {
             $template . config_item('twig.extension');
         }
 
+        // Merge supplied data with any local variables
+        $data = array_merge($this->_local_vars, $data);
+
         $template = $this->_twig->loadTemplate($template);
 
         if ($return === true)
@@ -197,6 +200,9 @@ class Twig {
     public function parse_string($string, $data = array(), $return = false)
     {
         $string = $this->_twig->loadTemplate($string);
+
+        // Merge supplied data with any local variables
+        $data = array_merge($this->_local_vars, $data);
 
         if ( $return === true )
         {
