@@ -30,8 +30,12 @@ $config['twig.filters'] = array(
     // Register filters for use in Twig templates here
 );
 
-// Twig template caching location
-$config['twig.cache_location'] = APPPATH . "cache/twig/";
+$config['twig.environment'] = array(
 
-// Debug mode turned on or off for Twig?
-$config['twig.debug'] = false;
+    "cache_location" => APPPATH . "cache/twig/",
+    "cache_status"    => FALSE,
+    "auto_reload"      => NULL,
+    "debug_mode"    => FALSE,
+    "autoescape"      => FALSE,
+    "optimizations"    => -1
+);

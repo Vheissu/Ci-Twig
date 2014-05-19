@@ -49,16 +49,23 @@ class Twig {
         // Get locations
         $this->_set_template_locations();
 
-        // Required Twig paths and variables, modify in config/twig.php
-        $this->_cache_dir  = config_item('twig.cache_location');
-        $this->_debug        = config_item('twig.debug');
-
         $this->_twig_loader = new Twig_Loader_Filesystem($this->_template_directories);
 
-        $this->_twig = new Twig_Environment($this->_twig_loader, array(
-                'cache' => $this->_cache_dir,
-                'debug' => $this->_debug,
-        ));
+        // Get environment config settings
+        $environment = config_item("twig.environment");
+
+        // Set our cache path or status
+        $environment["cache"] = ($environment["cache_status"]) ? $environment["cache_location"] : FALSE;
+
+        $twig_environment = array(
+            "cache"           => $environment["cache"],
+            "debug"           => $environment["debug_mode"],
+            "auto_reload"   => $environment["auto_reload"],
+            "autoescape"   => $environment["autoescape"],
+            "optimizations" => $environment["optimizations"]
+        );
+
+        $this->_twig = new Twig_Environment($this->_twig_loader, $twig_environment);
 
         if ( !empty(config_item("twig.functions")) )
         {
