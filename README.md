@@ -1,14 +1,30 @@
-# Twig Templating for Codeigniter
+# CI Twig — Twig Templating For Codeigniter
 
-Want to use the powerful Twig templating library in Codeigniter? How about no Scott, no. Okay, just kidding. This library does what the title suggests, it lets you use Twig templates in your Codeigniter applications.
-
-Lets face it, the in-built parser and view system is crap. It doesn't offer anything signficant or awesome, if you're familiar with Smarty or familiar with the way Django allows you to template everything is a lot simpler.
+The default Codeigniter view and parsing libraries leave a lot to be desired (mainly proper templating, better caching, better syntax..). Twig is a tried and tested templating library for PHP, so it makes sense to use it for your Codeigniter applications.
 
 ## Installation
 
 Copy all files from this repo into your Codeigniter application directory. Simple. It is recommended you add the library 'twig' to your config/autoload.php array so you don't have to keep loading it.
 
-## How to use Ci Twig
+## Does this support Modular Extensions HMVC?
+
+Yes. Yes it does. Support for module view folders comes standard with CI Twig.
+
+## Does this work with Codeigniter 3.0?
+
+Yes. This library is tried and tested with both the stable version of Codeigniter as well as the forever not complete Codeigniter 3.0.
+
+## How can I use Codeigniter helper functions in my templates?
+
+In the config/twig.php file you will see two array values. One allows you to define functions for use in Twig templates and the other allows you to define custom filters.
+
+The following example allows you to use base_url in your Twig templates, provided you have loaded the "url" helper somewhere in your app.
+
+    $config['twig.functions'] = array(
+        "base_url"
+    );
+
+## How to use CI Twig in your projects
 
 To use this library load it or better yet, autoload it. Then you can do stuff like this in your controllers.
 
