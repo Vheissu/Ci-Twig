@@ -6,11 +6,11 @@
  * Modular Extensions HMVC
  *
  * @package   CI Twig
- * @author      Dwayne Charrington
- * @copyright  2014 Dwayne Charrington and Github contributors
- * @link           http://ilikekillnerds.com
- * @license     Licenced under MIT
- * @version     1.1
+ * @author    Dwayne Charrington
+ * @copyright 2014 Dwayne Charrington and Github contributors
+ * @link      http://ilikekillnerds.com
+ * @license   Licenced under MIT
+ * @version   1.1
  */
 
 class Twig {
@@ -21,8 +21,8 @@ class Twig {
     protected $_twig_loader;
 
     protected $_template_directories = array();
-    protected $_local_vars                = array();
-    protected $_global_vars              = array();
+    protected $_local_vars           = array();
+    protected $_global_vars          = array();
 
     protected $_cache_dir;
     protected $_debug;
@@ -44,7 +44,7 @@ class Twig {
         $this->CI->config->load('twig');
 
         // Add in default Twig locations
-        $this->add_template_location(config_item('twig.locations'));
+        $this->add_template_location($this->config->item('twig.locations'));
 
         // Get locations
         $this->_set_template_locations();
@@ -52,32 +52,32 @@ class Twig {
         $this->_twig_loader = new Twig_Loader_Filesystem($this->_template_directories);
 
         // Get environment config settings
-        $environment = config_item("twig.environment");
+        $environment = $this->config->item("twig.environment");
 
         // Set our cache path or status
         $environment["cache"] = ($environment["cache_status"]) ? $environment["cache_location"] : FALSE;
 
         $twig_environment = array(
-            "cache"           => $environment["cache"],
-            "debug"           => $environment["debug_mode"],
+            "cache"         => $environment["cache"],
+            "debug"         => $environment["debug_mode"],
             "auto_reload"   => $environment["auto_reload"],
-            "autoescape"   => $environment["autoescape"],
+            "autoescape"    => $environment["autoescape"],
             "optimizations" => $environment["optimizations"]
         );
 
         $this->_twig = new Twig_Environment($this->_twig_loader, $twig_environment);
 
-        if ( !empty(config_item("twig.functions")) )
+        if ( $this->config->item("twig.functions") )
         {
-            foreach ( config_item("twig.functions") AS $function )
+            foreach ( $this->config->item("twig.functions") AS $function )
             {
                 $this->register_function($function);
             }
         }
 
-        if ( !empty(config_item("twig.filters")) )
+        if ( $this->config->item("twig.filters") )
         {
-            foreach ( config_item("twig.filters") AS $filter )
+            foreach ( $this->config->item("twig.filters") AS $filter )
             {
                 $this->register_filter($filter);
             }
