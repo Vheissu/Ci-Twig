@@ -44,7 +44,7 @@ class Twig {
         $this->CI->config->load('twig');
 
         // Add in default Twig locations
-        $this->add_template_location($this->config->item('twig.locations'));
+        $this->add_template_location($this->CI->config->item('twig.locations'));
 
         // Get locations
         $this->_set_template_locations();
@@ -52,7 +52,7 @@ class Twig {
         $this->_twig_loader = new Twig_Loader_Filesystem($this->_template_directories);
 
         // Get environment config settings
-        $environment = $this->config->item("twig.environment");
+        $environment = $this->CI->config->item("twig.environment");
 
         // Set our cache path or status
         $environment["cache"] = ($environment["cache_status"]) ? $environment["cache_location"] : FALSE;
@@ -67,17 +67,17 @@ class Twig {
 
         $this->_twig = new Twig_Environment($this->_twig_loader, $twig_environment);
 
-        if ( $this->config->item("twig.functions") )
+        if ( $this->CI->config->item("twig.functions") )
         {
-            foreach ( $this->config->item("twig.functions") AS $function )
+            foreach ( $this->CI->config->item("twig.functions") AS $function )
             {
                 $this->register_function($function);
             }
         }
 
-        if ( $this->config->item("twig.filters") )
+        if ( $this->CI->config->item("twig.filters") )
         {
-            foreach ( $this->config->item("twig.filters") AS $filter )
+            foreach ( $this->CI->config->item("twig.filters") AS $filter )
             {
                 $this->register_filter($filter);
             }
