@@ -2,9 +2,10 @@
 
 Twig templating integration for CodeIgniter 4.
 
-[![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-8892BF.svg)](https://php.net/)
-[![CodeIgniter](https://img.shields.io/badge/CodeIgniter-%3E%3D4.6-DD4814.svg)](https://codeigniter.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/vheissu/ci-twig.svg)](https://packagist.org/packages/vheissu/ci-twig)
+[![PHP Version](https://img.shields.io/packagist/php-v/vheissu/ci-twig.svg)](https://php.net/)
+[![License: MIT](https://img.shields.io/packagist/l/vheissu/ci-twig.svg)](https://opensource.org/licenses/MIT)
+[![Total Downloads](https://img.shields.io/packagist/dt/vheissu/ci-twig.svg)](https://packagist.org/packages/vheissu/ci-twig)
 
 ## Requirements
 
