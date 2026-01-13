@@ -1,1 +1,46 @@
-third_party/Twig
+# Dependencies
+/vendor/
+/testapp/vendor/
+/testapp/writable/logs/*
+/testapp/writable/cache/*
+/testapp/writable/debugbar/*
+/testapp/writable/session/*
+!/testapp/writable/logs/.gitkeep
+!/testapp/writable/cache/.gitkeep
+
+# IDE and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+.phpunit.cache/
+.phpunit.result.cache
+coverage/
+.coverage
+
+# Build artifacts
+*.phar
+build/
+
+# Composer
+composer.lock
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Cache
+/cache/
+*.cache

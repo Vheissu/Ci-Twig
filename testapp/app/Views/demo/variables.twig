@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }} - {{ site_name }}</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #f5f5f5; }
+        .nav { margin: 2rem 0; }
+        .nav a { margin-right: 1rem; color: #1976d2; }
+    </style>
+</head>
+<body>
+    <h1>Variables Demo</h1>
+
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>page_title (local)</td>
+            <td>{{ page_title }}</td>
+        </tr>
+        <tr>
+            <td>author (local)</td>
+            <td>{{ author }}</td>
+        </tr>
+        <tr>
+            <td>year (local)</td>
+            <td>{{ year }}</td>
+        </tr>
+        <tr>
+            <td>site_name (global)</td>
+            <td>{{ site_name }}</td>
+        </tr>
+        <tr>
+            <td>extra (render data)</td>
+            <td>{{ extra }}</td>
+        </tr>
+    </table>
+
+    <div class="nav">
+        <a href="{{ base_url('twigdemo') }}">← Back to Index</a>
+        <a href="{{ base_url('twigdemo/functions') }}">Functions Demo →</a>
+    </div>
+</body>
+</html>

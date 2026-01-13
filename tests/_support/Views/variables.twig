@@ -1,0 +1,8 @@
+Title: {{ title }}
+Content: {{ content }}
+{% if items is defined %}
+Items:
+{% for item in items %}
+- {{ item }}
+{% endfor %}
+{% endif %}
